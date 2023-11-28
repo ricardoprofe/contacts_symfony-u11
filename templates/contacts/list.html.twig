@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1 class="centered">Contacts App</h1>
+    {%  if contacts == null %}
+        <h2>No contacts found</h2>
+    {%  else %}
+        <main>
+            <h2 class="centered">Contacts</h2>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                </tr>
+                {% for contact in contacts %}
+                    <tr>
+                        <td><a href="{{ path('single_contact', { id: contact.id }) }}">Open contact</a></td>
+                        <td>{{ contact.title }}</td>
+                        <td>{{ contact.name }}</td>
+                        <td>{{ contact.surname }}</td>
+                        <td>{{ contact.email }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </main>
+    {% endif %}
+{% endblock %}

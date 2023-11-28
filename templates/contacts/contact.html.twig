@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1 class="centered">Contacts App</h1>
+
+    {%  if contact == null %}
+        <h2>Please, enter a contact Id</h2>
+    {%  elseif contact.name == null %}
+        <h2>No contact found with id {{ contact.id }} </h2>
+    {%  else %}
+        <main class="contact">
+            <h2>Contact: {{ contact.title}} {{ contact.name }} {{ contact.surname}} </h2>
+            <ul>
+                <li><strong>Birthdate:</strong> {{ contact.birthdate }}</li>
+                <li><strong>Email:</strong> {{ contact.email }} </li>
+                <li><strong>Phones:</strong>
+                    <ul>
+                        {% for phone in contact.phones %}
+                            <li> {{ phone.type }}: {{ phone.number }} </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+        </main>
+    {% endif %}
+
+{% endblock %}

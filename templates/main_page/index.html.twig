@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <main class="centered">
+        <h1>My Contacts App</h1>
+        <h2>Welcome to my Contacts App</h2>
+        <p>You can see the full  <a href ="{{ path('contact_list') }}">list of contacts</a></p>
+        <p>Or try to search a <a href ="{{ path('single_contact') }}">contact</a> by its id</p>
+    </main>
+
+{% endblock %}
